@@ -5,11 +5,24 @@ int main()
 {
     // Create and open a window [used a constructor here]
     // The class is sf::Window and object is window
-    sf::RenderWindow window(sf::VideoMode(200, 200), "SFML works!");
+    sf::RenderWindow window(sf::VideoMode(400, 400), "SFML works!");
 
-    // Create a circle in that window
-    sf::CircleShape shape(100.f);
-    shape.setFillColor(sf::Color::Green);
+    sf::Font font;
+    if (!font.loadFromFile("../fonts/Audiowide/Audiowide-Regular.ttf"))
+    {
+        std::cout << "Symbol font not loaded" << std::endl;
+    }
+
+    sf::Text text("Mine Sweeper v1.5", font, 30);
+    text.setFillColor(sf::Color::White);
+    text.setPosition(40.f, 10.f);
+
+    sf::RectangleShape rectangle(sf::Vector2f(120.f, 50.f));
+    rectangle.setPosition(140.f, 100.f);
+
+    sf::Text play_text("PLAY", font, 30);
+    play_text.setFillColor(sf::Color::Black);
+    play_text.setPosition(155.f, 105.f);
 
     // Run program as long as the window is open
     while (window.isOpen())
@@ -36,7 +49,9 @@ int main()
         }
 
         window.clear();
-        window.draw(shape);
+        window.draw(text);
+        window.draw(rectangle);
+        window.draw(play_text);
         window.display();
     }
 
