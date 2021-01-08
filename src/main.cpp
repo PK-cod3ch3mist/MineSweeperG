@@ -13,16 +13,27 @@ int main()
         std::cout << "Symbol font not loaded" << std::endl;
     }
 
-    sf::Text text("Mine Sweeper v1.5", font, 30);
+    sf::Text text("Mine Sweeper v2.0", font, 30);
     text.setFillColor(sf::Color::White);
     text.setPosition(40.f, 10.f);
 
-    sf::RectangleShape rectangle(sf::Vector2f(120.f, 50.f));
-    rectangle.setPosition(140.f, 100.f);
+    sf::RectangleShape play_button(sf::Vector2f(120.f, 50.f));
+    play_button.setPosition(140.f, 100.f);
+
+    sf::RectangleShape score_button(sf::Vector2f(160.f, 50.f));
+    score_button.setPosition(120.f, 200.f);
 
     sf::Text play_text("PLAY", font, 30);
     play_text.setFillColor(sf::Color::Black);
     play_text.setPosition(155.f, 105.f);
+
+    sf::Text score_text("SCORES", font, 30);
+    score_text.setFillColor(sf::Color::Black);
+    score_text.setPosition(130.f, 205.f);
+
+    sf::Text credit_text("created by Ord-Com. MIT license\n see GitHub page for more info", font, 10);
+    credit_text.setFillColor(sf::Color::White);
+    credit_text.setPosition(100.f, 350.f);
 
     // Run program as long as the window is open
     while (window.isOpen())
@@ -50,8 +61,11 @@ int main()
 
         window.clear();
         window.draw(text);
-        window.draw(rectangle);
+        window.draw(play_button);
         window.draw(play_text);
+        window.draw(score_button);
+        window.draw(score_text);
+        window.draw(credit_text);
         window.display();
     }
 
