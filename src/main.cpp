@@ -3,9 +3,16 @@
 using namespace sf;
 
 // Defining some global objects which are essential to the program
-// For example, the main window
-// And the associated stuff
-RenderWindow window(VideoMode(400, 400), "Minesweeper v2.0");
+RenderWindow window(VideoMode(400, 400), "MineSweeper v2.0");
+RectangleShape box1(Vector2f(120.f, 40.f));
+RectangleShape box2(Vector2f(120.f, 40.f));
+Sprite emoji;
+
+class game_cell cell[10][10];
+
+Text no_mine;
+
+Texture game_texture;
 
 Font font;
 
@@ -14,6 +21,7 @@ void init() {
     {
         std::cout << "Symbol font not loaded" << std::endl;
     }
+    window.setKeyRepeatEnabled(false);
 }
 
 void welcome(const Text &text, const RectangleShape &play_button, const RectangleShape &score_button, const Text &play_text, const Text &score_text, const Text &credit_text) {
@@ -27,6 +35,11 @@ void welcome(const Text &text, const RectangleShape &play_button, const Rectangl
 
 int main()
 {
+    no_mine.setFont(font);
+    int state = 0;
+    bool initialised = false;
+    int rw, cl;
+    rw = cl = 0;
     init();
 
     // Setting up the splash screen/welcome window
@@ -68,20 +81,69 @@ int main()
             // Here we are checking for close window request
             if (event.type == sf::Event::Closed)
                 window.close(); // We then close the window [has to be explicit] if such a request is made
-            if (event.type == sf::Event::MouseButtonPressed)
+            if (event.type == sf::Event::MouseButtonPressed && state == 0)
             {
                 if (event.mouseButton.button == sf::Mouse::Left)
                 {
                     std::cout << "the left button was pressed" << std::endl;
                     std::cout << "mouse x: " << event.mouseButton.x << std::endl;
                     std::cout << "mouse y: " << event.mouseButton.y << std::endl;
+
+                    if (event.mouseButton.x >= 140 && event.mouseButton.x <= 260 && event.mouseButton.y >= 100 && event.mouseButton.y <= 150)
+                    {
+                        state = 3;
+                        continue;
+                    }
                 }
+            }
+            if (event.type == sf::Event::MouseButtonReleased && state == 3) {
+                state = 1;
+                continue;
             }
         }
 
-        window.clear();
-        welcome(text, play_button, score_button, play_text, score_text, credit_text);
-        window.display();
+        if (state == 0) {
+            window.clear();
+            welcome(text, play_button, score_button, play_text, score_text, credit_text);
+            window.display();
+        }
+
+        if (state == 1) {
+            if (!initialised) {
+                init_game();
+                initialised = true;
+            }
+            else {
+                if (check_w()){
+                    return 0;
+                }
+                if (event.type == sf::Event::MouseButtonPressed) {
+                    if (event.mouseButton.button == sf::Mouse::Left)
+                    {
+                        if (event.mouseButton.x >= 50 && event.mouseButton.y >= 75 && event.mouseButton.x <= 350 && event.mouseButton.y <= 375) {
+                            rw = (int)(((int)(event.mouseButton.x) - 50) / 30);
+                            cl = (int)(((int)(event.mouseButton.y) - 75) / 30);
+                            if (!check_l(rw, cl)) {
+                                reveal(rw, cl, true);
+                                display();
+                            }
+                            else {
+                                std::cout << "YOU LOSE !!";
+                                state = 2;
+                            }
+                        }
+                    }
+                    if (event.mouseButton.button == sf::Mouse::Right) {
+                        if (event.mouseButton.x >= 50 && event.mouseButton.y >= 75 && event.mouseButton.x <= 350 && event.mouseButton.y <= 375) {
+                            rw = (int)(((int)(event.mouseButton.x) - 50) / 30);
+                            cl = (int)(((int)(event.mouseButton.y) - 75) / 30);
+                            cell[rw][cl].s_value = 'P';
+                            display();
+                        }
+                    }
+                }
+            }
+        }
     }
 
     return 0;
