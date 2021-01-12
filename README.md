@@ -17,5 +17,9 @@ For detailed instructions, visit https://www.sfml-dev.org
 Well it is minesweeper, you will figure it out easily enough. However, here are a few details :
 * When you win a game, the smiley at the top shows off ( by wearing shades ). To play again, simply click on the smiley.
 * Similarly when you lose, to play again click on the smiley.
+
+### A Small Demo
+![A Small Demo](https://drive.google.com/file/d/1I5e3ONF1u1HcBeTpLZKVLYyI9AB6ZY9q/view?usp=sharing)
+
 ## Features to come
 I am currently working upon a highscore collection system and a timing system for the game. This feature will be added soon.
