@@ -24,12 +24,10 @@ void init() {
     window.setKeyRepeatEnabled(false);
 }
 
-void welcome(const Text &text, const RectangleShape &play_button, const RectangleShape &score_button, const Text &play_text, const Text &score_text, const Text &credit_text) {
+void welcome(const Text &text, const RectangleShape &play_button, const Text &play_text, const Text &credit_text) {
     window.draw(text);
     window.draw(play_button);
-    window.draw(score_button);
     window.draw(play_text);
-    window.draw(score_text);
     window.draw(credit_text);
 }
 
@@ -51,16 +49,9 @@ int main()
     RectangleShape play_button(sf::Vector2f(120.f, 50.f));
     play_button.setPosition(140.f, 100.f);
 
-    RectangleShape score_button(sf::Vector2f(160.f, 50.f));
-    score_button.setPosition(120.f, 200.f);
-
     Text play_text("PLAY", font, 30);
     play_text.setFillColor(sf::Color::Black);
     play_text.setPosition(155.f, 105.f);
-
-    Text score_text("SCORES", font, 30);
-    score_text.setFillColor(sf::Color::Black);
-    score_text.setPosition(130.f, 205.f);
 
     Text credit_text("created by Ord-Com. MIT license\n see GitHub page for more info", font, 10);
     credit_text.setFillColor(sf::Color::White);
@@ -104,7 +95,7 @@ int main()
 
         if (state == 0) {
             window.clear();
-            welcome(text, play_button, score_button, play_text, score_text, credit_text);
+            welcome(text, play_button, play_text, credit_text);
             window.display();
         }
 
