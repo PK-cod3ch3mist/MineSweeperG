@@ -19,7 +19,7 @@ Well it is minesweeper, you will figure it out easily enough. However, here are 
 * Similarly when you lose, to play again click on the smiley.
 
 ### A Small Demo
-![A Small Demo]()
+![A Small Demo](https://github.com/PK-cod3ch3mist/MineSweeperG/blob/main/assets/demos/Screen%20Recording%202021-01-12%20at%2010.37.04%20AM.gif)
 
 ## Features to come
 I am currently working upon a highscore collection system and a timing system for the game. This feature will be added soon.
