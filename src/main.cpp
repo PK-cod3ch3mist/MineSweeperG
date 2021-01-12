@@ -108,19 +108,22 @@ int main()
             window.display();
         }
 
-        if (state == 1) {
+        if (state == 1 || state == 2) {
             if (!initialised) {
                 init_game();
+                display();
                 initialised = true;
+                state = 1;
             }
             else {
                 if (check_w()){
-                    return 0;
+                    display();
+                    state = 2;
                 }
                 if (event.type == sf::Event::MouseButtonPressed) {
                     if (event.mouseButton.button == sf::Mouse::Left)
                     {
-                        if (event.mouseButton.x >= 50 && event.mouseButton.y >= 75 && event.mouseButton.x <= 350 && event.mouseButton.y <= 375) {
+                        if (event.mouseButton.x >= 50 && event.mouseButton.y >= 75 && event.mouseButton.x <= 350 && event.mouseButton.y <= 375 && state != 2) {
                             rw = (int)(((int)(event.mouseButton.x) - 50) / 30);
                             cl = (int)(((int)(event.mouseButton.y) - 75) / 30);
                             if (!check_l(rw, cl)) {
@@ -128,9 +131,12 @@ int main()
                                 display();
                             }
                             else {
-                                std::cout << "YOU LOSE !!";
                                 state = 2;
                             }
+                        }
+                        if (event.mouseButton.x >= 180 && event.mouseButton.x <= 220 && event.mouseButton.y >= 30 && event.mouseButton.y <= 70 && state == 2) {
+                            initialised = false;
+                            continue;
                         }
                     }
                     if (event.mouseButton.button == sf::Mouse::Right) {

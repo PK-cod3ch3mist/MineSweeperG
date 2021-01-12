@@ -9,6 +9,8 @@ void init_game() {
     for (int i = 0; i < 10; i++) {
         for (int j = 0; j < 10; j++) {
             cell[i][j].set_pos(i, j);
+            cell[i][j].s_value = '.';
+            cell[i][j].b_value = 0;
         }
     }
     
@@ -208,7 +210,7 @@ bool check_w() {
             }
         }
         if (check) {
-            std::cout << "YOU WIN !!";
+            emoji.setTextureRect(sf::IntRect(81, 24, 26, 26));
             return true;
         }
     }
