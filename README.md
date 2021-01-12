@@ -19,7 +19,7 @@ Well it is minesweeper, you will figure it out easily enough. However, here are 
 * Similarly when you lose, to play again click on the smiley.
 
 ### A Small Demo
-![A Small Demo](https://drive.google.com/file/d/13OwZfUtZeuVf0WCYiY61SVipoJGoo5uE/view?usp=sharing)
+![A Small Demo]()
 
 ## Features to come
 I am currently working upon a highscore collection system and a timing system for the game. This feature will be added soon.
