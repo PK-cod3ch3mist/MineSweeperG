@@ -1,8 +1,7 @@
 # MineSweeper v1.5
 This is actually an improved GUI version for the CLI minesweeper I made
 
-## Dependencies
-The CMake file should tell you that, but anyway, you require
+## Dependencies and Installation
 * A C++ compiler, one supporting C++11 would be good. You could install G++/GCC or Clang or MinGW
 * SFML libraries/API. For linux users this is easy, simply use your package manager, (for example in Ubuntu)
 ```shell
@@ -13,7 +12,10 @@ for MacOS users I would recommend doing the same using homebrew.
 brew install sfml
 ```
 For detailed instructions, visit https://www.sfml-dev.org
-* CMake. This can be installed using package managers for linux users, and using homebrew for MacOS users
-
+* For macOS and Linux users, the Makefile will make compilation easy. Simply go to the src folder and type make in the terminal. That should do the job.
 ## Gameplay
-Well it is minesweeper, you will figure it out easily enough
+Well it is minesweeper, you will figure it out easily enough. However, here are a few details :
+* When you win a game, the smiley at the top shows off ( by wearing shades ). To play again, simply click on the smiley.
+* Similarly when you lose, to play again click on the smiley.
+## Features to come
+I am currently working upon a highscore collection system and a timing system for the game. This feature will be added soon.

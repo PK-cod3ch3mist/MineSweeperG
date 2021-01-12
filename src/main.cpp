@@ -53,7 +53,7 @@ int main()
     play_text.setFillColor(sf::Color::Black);
     play_text.setPosition(155.f, 105.f);
 
-    Text credit_text("created by Ord-Com. MIT license\n see GitHub page for more info", font, 10);
+    Text credit_text(" Created by Pratyush Kumar\nSee GitHub page for more info", font, 10);
     credit_text.setFillColor(sf::Color::White);
     credit_text.setPosition(100.f, 350.f);
     // End here...
