@@ -1,4 +1,4 @@
-# MineSweeper v1.5
+# MineSweeper v2.0
 This is actually an improved GUI version for the CLI minesweeper I made
 
 ## Dependencies and Installation
