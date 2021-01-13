@@ -23,3 +23,5 @@ Well it is minesweeper, you will figure it out easily enough. However, here are 
 
 ## Features to come
 I am currently working upon a highscore collection system and a timing system for the game. This feature will be added soon.
+
+![Vim Humour](https://www.vim.org/images/vim_created.gif)
