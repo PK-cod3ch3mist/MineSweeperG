@@ -3,7 +3,7 @@
 using namespace sf;
 
 // Defining some global objects which are essential to the program
-RenderWindow window(VideoMode(400, 400), "MineSweeper v2.0");
+RenderWindow window(VideoMode(400, 400), "MineSweeper v2.0", Style::Titlebar | Style::Close);
 RectangleShape box1(Vector2f(120.f, 40.f));
 RectangleShape box2(Vector2f(120.f, 40.f));
 Sprite emoji;
