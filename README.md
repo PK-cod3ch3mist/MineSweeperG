@@ -11,7 +11,7 @@ for MacOS users I would recommend doing the same using homebrew.
 ```shell
 brew install sfml
 ```
-For detailed instructions, visit https://www.sfml-dev.org
+For detailed instructions on installing SFML, visit https://www.sfml-dev.org
 * For macOS and Linux users, the Makefile will make compilation easy. Simply go to the src folder and type make in the terminal. That should do the job.
 ## Gameplay
 Well it is minesweeper, you will figure it out easily enough. However, here are a few details :
