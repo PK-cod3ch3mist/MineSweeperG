@@ -1,5 +1,5 @@
 # MineSweeper v2.0
-This is actually an improved GUI version for the CLI minesweeper I made
+This is actually an improved GUI version for the CLI minesweeper I made (you can visit that here https://github.com/PK-cod3ch3mist/MineSweeperCLI)
 
 ## Dependencies and Installation
 * A C++ compiler, one supporting C++11 would be good. You could install G++/GCC or Clang or MinGW
